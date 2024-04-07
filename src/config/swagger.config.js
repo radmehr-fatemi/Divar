@@ -4,13 +4,14 @@ const swaggerDoc = require("swagger-jsdoc");
 const swaggerConfig = (app) => {
     const swaggerDocument = swaggerDoc({
         swaggerDefinition: {
+            openapi: "3.0.1" ,
             info: {
                 title: "Radmehr Divar",
                 description: "divar web for buy and sell anythings",
                 version: "1.0.0"
             }
         },
-        apis: []
+        apis: [process.cwd() + "/src/modules/**/*.swagger.js"]
     })
 
     const swagger = swaggerUi.setup(swaggerDocument ,{});
